@@ -1,6 +1,7 @@
 package com.example.empyreancodeassessment.dagger
 
 import com.example.empyreancodeassessment.ECAApplication
+import com.example.empyreancodeassessment.features.feed.FeedFragment
 import com.example.empyreancodeassessment.features.login.LoginFragment
 import dagger.Component
 import javax.inject.Singleton
@@ -17,4 +18,5 @@ interface AppComponent {
 
     fun inject(app: ECAApplication)
     fun inject(loginFragment: LoginFragment)
+    fun inject(feedFragment: FeedFragment)
 }

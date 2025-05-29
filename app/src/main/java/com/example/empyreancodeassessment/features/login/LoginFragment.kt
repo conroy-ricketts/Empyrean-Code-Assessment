@@ -57,7 +57,7 @@ class LoginFragment : Fragment() {
         viewModel.loginSuccess.observe(this) { loginResponse ->
             Log.d("LoginFragment", "The user was successfully logged in!")
 
-            AppEngine.getInstance().authToken = loginResponse.token
+            AppEngine.getInstance().authToken = "Bearer " + loginResponse.token
             AppEngine.getInstance().currentUser = loginResponse.user
 
             loginNavigator.navigateToFeed()

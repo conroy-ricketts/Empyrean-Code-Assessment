@@ -20,7 +20,7 @@ interface MockAPIService {
 
     @GET("items")
     fun getItems(
-        @Header("Authorization: Bearer") authToken: String
+        @Header("Authorization") authToken: String
     ): Single<List<ItemResponse>>
 
     @GET("items/{id}")
