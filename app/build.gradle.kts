@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("kotlin-kapt")
 }
 
 android {
@@ -41,9 +42,18 @@ android {
 
 dependencies {
 
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
+    kapt(libs.dagger.android.processor)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.adapter.rxjava2)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.urlconnection)
+    implementation(libs.logging.interceptor)
+    implementation(libs.rxjava2.rxjava)
+    implementation(libs.rxkotlin)
+    implementation(libs.rxjava2.rxandroid)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

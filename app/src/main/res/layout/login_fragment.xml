@@ -25,6 +25,7 @@
         android:textSize="15sp" />
 
     <EditText
+        android:id="@+id/login_username_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -38,11 +39,20 @@
         android:textSize="15sp" />
 
     <EditText
+        android:id="@+id/login_password_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:hint="@string/login_fragment_password_hint"
         android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/login_submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/login_fragment_submit_button_text" />
 
     <TextView
         android:layout_width="match_parent"
