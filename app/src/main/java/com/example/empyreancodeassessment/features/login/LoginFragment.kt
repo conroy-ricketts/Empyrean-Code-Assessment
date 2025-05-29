@@ -7,19 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.empyreancodeassessment.AppEngine
 import com.example.empyreancodeassessment.ECAApplication
 import com.example.empyreancodeassessment.R
 import com.example.empyreancodeassessment.ViewModelFactory
 import javax.inject.Inject
 
 class LoginFragment : Fragment() {
-    private lateinit var linearLayout: LinearLayout
     private lateinit var usernameEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var submitButton: Button
+    private lateinit var loginNavigator: LoginNavigator
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory<LoginViewModel>
@@ -30,6 +30,7 @@ class LoginFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         ECAApplication.getAppComponent().inject(this)
         subscribeToViewModel()
+        loginNavigator = requireActivity() as LoginNavigator
         super.onCreate(savedInstanceState)
     }
 
@@ -39,7 +40,6 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.login_fragment, container, false)
-        linearLayout = view.findViewById(R.id.root_login_container)
         usernameEditText = view.findViewById(R.id.login_username_edit_text)
         passwordEditText = view.findViewById(R.id.login_password_edit_text)
         submitButton = view.findViewById(R.id.login_submit_button)
@@ -54,18 +54,23 @@ class LoginFragment : Fragment() {
     }
 
     private fun subscribeToViewModel() {
-        viewModel.loginSuccess.observe(this) {
+        viewModel.loginSuccess.observe(this) { loginResponse ->
             Log.d("LoginFragment", "The user was successfully logged in!")
+
+            AppEngine.getInstance().authToken = loginResponse.token
+            AppEngine.getInstance().currentUser = loginResponse.user
+
+            loginNavigator.navigateToFeed()
         }
 
-        viewModel.loginError.observe(this) {
+        viewModel.loginError.observe(this) { errorMessage ->
+            Log.e("LoginFragment", "There was an error authenticating the user!: $errorMessage")
+
             Toast.makeText(
                 requireContext(),
                 "There was an error logging in. Please try again.",
                 Toast.LENGTH_LONG
             ).show()
-
-            Log.e("LoginFragment", "There was an error authenticating the user!: $it")
         }
     }
 
