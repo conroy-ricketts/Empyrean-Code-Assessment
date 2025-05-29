@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Empyrean Code Assessment</string>
+    <string name="login_fragment_username_header">Username</string>
+    <string name="login_fragment_password_header">Password</string>
+    <string name="login_fragment_password_hint">Enter your password</string>
+    <string name="login_fragment_username_hint">Enter your username</string>
+    <string name="login_fragment_title_text">Empryean Code Assessment</string>
+    <string name="login_fragment_tip_text">Tip: Change your device theme to enable/disable dark mode!</string>
 </resources>

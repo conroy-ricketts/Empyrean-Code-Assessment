@@ -3,9 +3,9 @@
 
     <style name="Theme.EmpyreanCodeAssessment" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Background Colors-->
-        <item name="colorSurface">@color/light_gray</item>
+        <item name="colorSurface">@color/dark_gray</item>
 
         <!-- Text Colors-->
-        <item name="colorOnSurface">@color/gray</item>
+        <item name="colorOnSurface">@color/white</item>
     </style>
 </resources>
