@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.empyreancodeassessment.AppEngine
 import com.example.empyreancodeassessment.ECAApplication
 import com.example.empyreancodeassessment.R
 import com.example.empyreancodeassessment.ViewModelFactory
@@ -21,6 +21,8 @@ class ItemDetailFragment : Fragment() {
     private lateinit var authorImageView: ImageView
     private lateinit var authorNameTextView: TextView
     private lateinit var authorEmailTextView: TextView
+    private lateinit var titleTextView: TextView
+    private lateinit var summaryTextView: TextView
     private lateinit var recyclerView: RecyclerView
 
     @Inject
@@ -48,15 +50,21 @@ class ItemDetailFragment : Fragment() {
         authorNameTextView = view.findViewById(R.id.item_detail_author_name)
         authorEmailTextView = view.findViewById(R.id.item_detail_author_email)
 
+        titleTextView = view.findViewById(R.id.item_detail_title)
+        summaryTextView = view.findViewById(R.id.item_detail_summary)
+
         return view
     }
 
     private fun subscribeToViewModel() {
         viewModel.author.observe(this) { author ->
             Log.d("ItemDetailFragment", "The author was successfully fetched!")
-            authorImageView.setImageURI(author.avatar.toUri())
+            // TODO: Set the author image
+//            authorImageView.setImageURI()
             authorNameTextView.text = "Author Name: " + author.name
             authorEmailTextView.text = "Author Email: " + author.email
+            titleTextView.text = AppEngine.getInstance().currentItem?.title
+            summaryTextView.text = AppEngine.getInstance().currentItem?.summary
         }
         viewModel.fetchAuthorError.observe(this) { errorMessage ->
             Log.e("ItemDetailFragment", "There was an error fetching the author!: $errorMessage")

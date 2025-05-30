@@ -31,6 +31,23 @@
         tools:text="Author Email" />
 
     <TextView
+        android:id="@+id/item_detail_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="20sp"
+        tools:text="Title" />
+
+    <TextView
+        android:id="@+id/item_detail_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="15sp"
+        tools:text="Summary" />
+
+
+    <TextView
         android:id="@+id/item_detail_comments_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
