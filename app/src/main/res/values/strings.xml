@@ -7,4 +7,5 @@
     <string name="login_fragment_title_text">Empryean Code Assessment</string>
     <string name="login_fragment_tip_text">Tip: Change your device theme to enable/disable dark mode!</string>
     <string name="login_fragment_submit_button_text">Login</string>
+    <string name="feed_fragment_tip_text">Tip: Tap on any item to see comments and the author!</string>
 </resources>
