@@ -32,7 +32,7 @@ class FeedViewModel @Inject constructor(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 { _feedItems.value = it },
-                { fetchFeedItemsError.value = it.message ?: "Unknown Error" }
+                { _fetchFeedItemsError.value = it.message ?: "Unknown Error" }
             )
 
         compositeDisposable.add(feedItemsDisposable)

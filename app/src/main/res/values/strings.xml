@@ -8,4 +8,6 @@
     <string name="login_fragment_tip_text">Tip: Change your device theme to enable/disable dark mode!</string>
     <string name="login_fragment_submit_button_text">Login</string>
     <string name="feed_fragment_tip_text">Tip: Tap on any item to see comments and the author!</string>
+    <string name="item_detail_fragment_author_image_description_text">Author Image</string>
+    <string name="item_detail_comments_header_text">Comments</string>
 </resources>

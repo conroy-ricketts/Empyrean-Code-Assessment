@@ -26,13 +26,13 @@ interface MockAPIService {
     @GET("items/{id}")
     fun getItem(
         @Header("Authorization") authToken: String,
-        @Path("id") itemId: String
+        @Path("id") itemId: Int
     ): Single<ItemResponse>
 
     @GET("items/{id}/comments")
     fun getItemComments(
         @Header("Authorization") authToken: String,
-        @Path("id") itemId: String
+        @Path("id") itemId: Int
     ): Single<List<CommentResponse>>
 
     @GET("users")
@@ -43,6 +43,6 @@ interface MockAPIService {
     @GET("users/{id}")
     fun getUser(
         @Header("Authorization") authToken: String,
-        @Path("id") userId: String
+        @Path("id") userId: Int
     ): Single<UserResponse>
 }
