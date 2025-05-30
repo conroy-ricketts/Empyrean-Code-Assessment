@@ -43,6 +43,7 @@ android {
 dependencies {
 
     implementation(libs.dagger)
+    implementation(libs.androidx.recyclerview)
     kapt(libs.dagger.compiler)
     kapt(libs.dagger.android.processor)
     implementation(libs.retrofit)

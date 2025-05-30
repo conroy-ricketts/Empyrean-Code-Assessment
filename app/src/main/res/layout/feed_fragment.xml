@@ -3,11 +3,12 @@
     android:id="@+id/root_feed_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
     android:orientation="vertical">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/feed_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TEST" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>

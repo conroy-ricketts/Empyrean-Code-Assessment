@@ -3,10 +3,10 @@
     android:id="@+id/root_login_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
     android:gravity="center"
     android:orientation="vertical"
-    android:paddingHorizontal="30dp"
-    android:textColor="?attr/colorSurface">
+    android:paddingHorizontal="30dp">
 
     <TextView
         android:layout_width="match_parent"

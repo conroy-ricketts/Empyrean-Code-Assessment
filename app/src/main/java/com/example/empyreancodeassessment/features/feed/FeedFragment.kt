@@ -7,12 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.empyreancodeassessment.ECAApplication
 import com.example.empyreancodeassessment.R
 import com.example.empyreancodeassessment.ViewModelFactory
 import javax.inject.Inject
 
 class FeedFragment : Fragment() {
+    private lateinit var recyclerView: RecyclerView
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory<FeedViewModel>
@@ -31,12 +34,17 @@ class FeedFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.feed_fragment, container, false)
+        val view = inflater.inflate(R.layout.feed_fragment, container, false)
+        recyclerView = view.findViewById(R.id.feed_recycler_view)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        return view
     }
 
     private fun subscribeToViewModel() {
         viewModel.feedItems.observe(this) { feedItems ->
             Log.d("FeedFragment", "The feed items were successfully fetched!")
+            recyclerView.adapter = FeedAdapter(feedItems)
         }
         viewModel.fetchFeedItemsError.observe(this) { errorMessage ->
             Log.e("FeedFragment", "There was an error fetching the feed items!: $errorMessage")
